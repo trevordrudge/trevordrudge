@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Upload
+{% endblock %}
+
+{% block main %}
+    <h1 class="title">
+      Please upload a file in .pdf format
+    </h1>
+    {% if error %}
+      <p class=error><strong>Error:</strong> {{ error }} </p>
+    {% endif %}
+    {% if success %} 
+      <p class="success"><strong>Successfully uploaded:</strong> {{ success }} </p>
+    {% endif %}
+    <form action = "http://localhost:5000/uploader" method = "POST" 
+      enctype = "multipart/form-data">
+      <div>
+        <input type = "file" name = "file" />
+      </div>
+      <div>
+        <input type="text" name="title" placeholder="Title" autofocus required/>
+      </div>
+      <div>
+        <label for="words">Words:</label>
+        <select id="words" name="words" required="required">
+          <option value="Elizabeth Drudge">Elizabeth Drudge</option>
+          <option value="Lena Martin">Lena Martin</option>
+        </select>
+      </div>
+      <br>
+      <div>
+        <label for="music">Music:</label>
+        <select id="music" name="music" required="required">
+          <option value="Elizabeth Drudge">Elizabeth Drudge</option>
+        </select>
+      </div>
+      <br>
+      <div>
+        <label for="book">Book number:</label>
+        <select id="book" name="book" required="required">
+          <option value="One">One</option>
+          <option value="Two">Two</option>
+          <option value="Three">Three</option>
+          <option value="Four">Four</option>
+          <option value="Five">Five</option>
+          <option value="Six">Six</option>
+          <option value="Seven">Seven</option>
+          <option value="Eight">Eight</option>
+          <option value="Nine">Nine</option>
+        </select>
+
+      </div>
+      <div>
+        <input type = "submit"/>
+      </div>
+    </form>   
+{% endblock %}
